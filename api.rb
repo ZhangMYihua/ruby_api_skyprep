@@ -6,16 +6,17 @@ class SkyPrepApi
 	def initialize(api_key, acct_key)
 		@api_key = api_key
 		@acct_key = acct_key
-		@conn = Faraday.new(:url => 'https://api.skyprep.io/admin/api')
+		@conn = Faraday.new(:url => 'https://api.skyprep.io/admin/api') 
+		@hash = {:api_key => @api_key, :acct_key => @acct_key}	
 	end
 
 	def test_connection
-		response = @conn.get 'https://api.skyprep.io/admin/api/test_connection', {:api_key => @api_key, :acct_key => @acct_key}
+		response = @conn.get 'test_connection', @hash
 		JSON.parse(response.body)
 	end
 
 	def get_users
-		response = @conn.get 'https://api.skyprep.io/admin/api/get_users', {:api_key => @api_key, :acct_key => @acct_key}
+		response = @conn.get 'get_users', @hash
 		JSON.parse(response.body)
 	end
 
