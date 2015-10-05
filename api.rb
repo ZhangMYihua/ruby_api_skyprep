@@ -3,7 +3,7 @@ require 'json'
 
 class SkyPrepApi
 	GET_PREFIXES = ['get', 'test_connection']
-	POST_PREFIXES = ['update', 'destroy', 'create']
+	POST_PREFIXES = ['update', 'destroy', 'create', 'remove', 'enroll']
 
 	def initialize(api_key, acct_key)
 		@api_key = api_key
@@ -46,6 +46,3 @@ class SkyPrepApi
 
 end
 
-my_app = SkyPrepApi.new('GjNHirhJC0TZ1nmJFtHP0IWfT', 'learnabli.skyprepapp.com')
-
-puts my_app.test_connection
