@@ -1,0 +1,1 @@
+conn = Faraday.new(:url => 'https://api.skyprep.io/admin/api')
