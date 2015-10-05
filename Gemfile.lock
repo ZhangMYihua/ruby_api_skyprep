@@ -3,6 +3,7 @@ GEM
   specs:
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    json (1.8.3)
     multipart-post (2.0.0)
 
 PLATFORMS
@@ -10,6 +11,7 @@ PLATFORMS
 
 DEPENDENCIES
   faraday
+  json
 
 BUNDLED WITH
    1.10.5
