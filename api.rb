@@ -2,14 +2,15 @@ require 'faraday'
 require 'json'
 
 class SkyPrepApi
+
 	GET_PREFIXES = ['get', 'test_connection']
 	POST_PREFIXES = ['update', 'destroy', 'create', 'remove', 'enroll']
 
 	def initialize(api_key, acct_key)
-		@api_key = api_key
+		@api_key  = api_key
 		@acct_key = acct_key
 		@base_url = Faraday.new(:url => 'https://api.skyprep.io/admin/api') 
-		@hash = {:api_key => @api_key, :acct_key => @acct_key}	
+		@hash = { :api_key => @api_key, :acct_key => @acct_key }	
 	end
 
 	def get(url, hash = {})
@@ -33,16 +34,19 @@ class SkyPrepApi
 	end
 
 	def method_missing(method_call, *args)
-		puts args
-		string = method_call.to_s
-		if POST_PREFIXES.any? {|pre| string.include?(pre)}
-			self.post(string, args)
-		elsif GET_PREFIXES.any? {|pre| string.include?(pre)}
-			self.get(string, args)
-		else
-			raise "Issue connecting to API. Please check all parameters"
-		end 
+		begin
+			string = method_call.to_s	
+			if POST_PREFIXES.any? {|pre| string.include?(pre)}
+				self.post(string, args)
+			else
+				self.get(string, args)
+			end
+		rescue Exception => e
+			puts e.message 
+		end
 	end
 
 end
+
+my_api = SkyPrepApi.new('GjNHirhJC0TZ1nmJFtHP0IWfT', 'learnabli.skyprepapp.com')
 
