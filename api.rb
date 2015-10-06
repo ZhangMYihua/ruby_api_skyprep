@@ -48,5 +48,4 @@ class SkyPrepApi
 
 end
 
-my_api = SkyPrepApi.new('GjNHirhJC0TZ1nmJFtHP0IWfT', 'learnabli.skyprepapp.com')
 
