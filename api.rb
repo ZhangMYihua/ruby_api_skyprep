@@ -29,7 +29,7 @@ class SkyPrepApi
 		else
 			params = @hash
 		end
-		response = @base_url.get url, params
+		response = @base_url.post url, params
 		JSON.parse(response.body)
 	end
 
@@ -48,4 +48,6 @@ class SkyPrepApi
 
 end
 
+my_app = SkyPrepApi.new('GjNHirhJC0TZ1nmJFtHP0IWfT' ,'learnabli.skyprepapp.com')
 
+puts my_app.test_connection
