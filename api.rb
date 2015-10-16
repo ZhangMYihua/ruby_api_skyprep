@@ -41,13 +41,10 @@ class SkyPrepApi
 			else
 				self.get(string, args)
 			end
-		rescue Exception => e
+		rescue => e
 			puts e.message 
 		end
 	end
 
 end
 
-my_app = SkyPrepApi.new('GjNHirhJC0TZ1nmJFtHP0IWfT' ,'learnabli.skyprepapp.com')
-
-puts my_app.test_connection
